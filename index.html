@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<!-- Updated paths for hosted website!!! -->
 <link href="./public/c3-0.4.11/c3.css" rel="stylesheet" type="text/css">
 <script src="./public/d3.min.js" charset="utf-8"></script>
 <script src="./public/c3-0.4.11/c3.min.js"></script>
+
+<!-- Links for local hosting! -->
+<!-- <link href="c3-0.4.11/c3.css" rel="stylesheet" type="text/css">
+<script src="d3.min.js" charset="utf-8"></script>
+<script src="c3-0.4.11/c3.min.js"></script> -->
 <title>CINC Examination</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,8 +37,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     <div id = "opium"
       <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Opium</a>
     </div>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
+    <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a> -->
   </div>
 
   <!-- Navbar on small screens -->
@@ -74,6 +79,7 @@ var chart = c3.generate({
     bindto: '#chart',
     data: {
         x: 'x',
+        // path for hosted website is public/all_data.csv!!
         url: 'public/all_data.csv'
     },
     legend: {
@@ -112,7 +118,7 @@ $(document).ready(function(){
     $("#second #secondText").text("The above is the CINC graphed for five countries, China, Japan, U.S., UK, and Russia, from 1860-2007. We've framed a lot of our understanding of Modern Chinese History in relation to the actions of China's neighbors -- e..g how China reacted to Japan's sudden rise in power during the Meiji restoration and its influence on China's literary reformation, the role of treaty ports and spheres of influence in Chinese rebellions. I wanted to use this dataset of 'power' to ask questions about events that we as historians use power dynamics to explain and understand. Click the above tabs to check out individual examples of this.")
   })
 })
-var riseString = "In class we discussed "
+var riseString = "We discussed that, despite infrastructure changes during the Self Strengthening Movement, reformists at the start of the 19th century called for a fundamental change in China's culture due to events that made it apparent China's attempt at modernization had failed. One of these was the first Sino-Japanese War, in which China was shocked to see its 'little brother' become the dominant East Asian country. Was this claim that China's culture must change justified? Looking at the CINC seems to support this -- it seems that China is clearly more capable according to this index (and in all honesty seems to dwarf Japan). From a future-blind perspective of a late 19th/early 20th century Chinese, Japan's defeat of China must have been shocking due to this stark difference in resources."
 // jquery for literary reformation tab
 $(document).ready(function(){
     $("#literary").click(function(event){
@@ -128,18 +134,19 @@ $(document).ready(function(){
     });
   });
 
+var opiumString = "We discussed the British intervention during the Taiping rebellion in order to protect their opium interests (which a stable Qing government least put at risk) shortly after the conclusion of the Second Opium War. This brings up the interesting question of whether their intervention was justified -- was their 'power' was sustained over the following decades? We can look at the CINC from 1860 onward to make some guesses."
 // jquery for opium war tab
 $(document).ready(function(){
   $("#opium").click(function(event){
     $("#aneeshTitle").hide();
     $("#chartHeader").show();
     $("#chart").show()
-    $("#first #firstTitle").text("Opium and the Qing");
+    $("#first #firstTitle").text("Efficacy of Intervention?");
     $("#first #firstText").hide();
     chart.hide(["Russia", "U.S.A.", "Japan"]);
     chart.show(["China", "UK"]);
     $("#second #secondTitle").hide();
-    $("#second #secondText").text("Meiji");
+    $("#second #secondText").text(opiumString);
   })
 })
 </script>
